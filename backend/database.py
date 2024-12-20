@@ -16,22 +16,30 @@ def get_database_connection():
     return conn
 
 
-def get_plan_by_uid(uid):
+def get_all_plans_with_recommendation(recommend_uid):
     """
-    Fetch insurance plan details from the database by UID.
-    :param uid: Plan UID
-    :return: Plan details as a dictionary or an error message
+    Fetch all insurance plans from the database and mark the recommended plan.
+    :param recommend_uid: Plan UID to be marked as recommended
+    :return: List of all plans with a recommendation flag
     """
     conn = get_database_connection()
     cursor = conn.cursor()
-    query = "SELECT * FROM InsurancePlans WHERE UID = ?"
-    cursor.execute(query, uid)
-    row = cursor.fetchone()
+    query = "SELECT * FROM InsurancePlans"
+    cursor.execute(query)
+    rows = cursor.fetchall()
     conn.close()
 
-    if row:
+    if rows:
         columns = [column[0] for column in cursor.description]
-        return dict(zip(columns, row))
 
-    return {"error": "Plan not found"}
+        plans = []
+        for row in rows:
+            plan = dict(zip(columns, row))
+            plan["is_recommended"] = (plan["UID"] == recommend_uid)
+            plans.append(plan)
+
+        return plans
+
+    return {"error": "No plans found"}
+
 
