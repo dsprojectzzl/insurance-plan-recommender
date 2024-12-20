@@ -59,8 +59,9 @@
     │   ├── scheduler.py                # Scheduler logic for periodic model updates
     ├── frontend/                       # Frontend files
     │   ├── index.html                  # Data submission form
+    │   ├── input_style.css             # Data submission style
     │   ├── result.html                 # Insurance plan details page
-    │   ├── styles.css                  # Shared styles
+    │   ├── style.css                   # Insurance display style
     │   ├── app.js                      # Frontend logic for API calls
     ├── models/                         # Saved ML models
     │   └── trained_model.pkl           # Pickled trained ML model
