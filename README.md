@@ -103,18 +103,39 @@
 
     Method: GET
 
-    Description: Retrieves details of a specific insurance plan.
+    Description: Retrieves details of all insurance plans from the database and marks the plan matching the provided plan_uid as the recommended plan.
 
     Response:
+    [
+        {
+            "UID": 1,
+            "Plan": "Standard",
+            "Premium": "$100-$200",
+            "Deductible": "$1000",
+            "Coverage": "Limited coverage",
+            "AdditionalBenefits": "None",
+            "is_recommended": false
+        },
+        {
+            "UID": 2,
+            "Plan": "Standard Plus",
+            "Premium": "$200-$400",
+            "Deductible": "$500",
+            "Coverage": "Comprehensive coverage for chronic conditions",
+            "AdditionalBenefits": "Free gym membership",
+            "is_recommended": true
+        },
+        {
+            "UID": 3,
+            "Plan": "Premium",
+            "Premium": "$400-$600",
+            "Deductible": "$200",
+            "Coverage": "Full coverage",
+            "AdditionalBenefits": "Priority support",
+            "is_recommended": false
+        }
+    ]
 
-    {
-        "UID": 2,
-        "Plan": "Standard Plus",
-        "Premium": "$200-$400",
-        "Deductible": "$500",
-        "Coverage": "Comprehensive coverage for chronic conditions",
-        "AdditionalBenefits": "Free gym membership"
-    }
 
 **Future Improvements**
 

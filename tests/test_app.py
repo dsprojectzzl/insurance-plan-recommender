@@ -4,9 +4,6 @@ import json
 
 class TestApp(unittest.TestCase):
     def setUp(self):
-        """
-        Set up a test client for the Flask app.
-        """
         self.app = app.test_client()
         self.app.testing = True
 
@@ -32,15 +29,21 @@ class TestApp(unittest.TestCase):
         """
         Test the /plans/<uid> endpoint.
         """
-        response = self.app.get('/plans/1')
+        response = self.app.get('/plans/2')
         self.assertEqual(response.status_code, 200)
         response_data = response.get_json()
-        self.assertIn("Plan", response_data)
+
+        self.assertIsInstance(response_data, list)
+
+        recommended_plans = [plan for plan in response_data if plan["is_recommended"]]
+        self.assertEqual(len(recommended_plans), 1)
+        self.assertEqual(recommended_plans[0]["UID"], 2)
 
         response = self.app.get('/plans/9999')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 404)
         response_data = response.get_json()
         self.assertIn("error", response_data)
+        self.assertEqual(response_data["error"], "No plan found with the given UID")
 
 if __name__ == '__main__':
     unittest.main()
