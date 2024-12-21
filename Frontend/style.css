@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eaf6fc;
+}
+
+header {
+  text-align: center;
+  background-color: #005e9c;
+  color: white;
+  padding: 20px;
+}
+
+button {
+  margin: 50px auto;
+  display: block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #005e9c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003f6b;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#plans-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.plan {
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plan h2 {
+  font-size: 18px;
+  color: #333;
+}
+
+.plan .recommended {
+  color: white;
+  background: #ff9900;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.plan button {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #005e9c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.plan button:hover {
+  background-color: #00447c;
+}
+
+.details-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #005e9c;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.details-btn:hover {
+    background-color: #003f6b;
+}
+
+

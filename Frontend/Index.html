@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy Insurance Co. - Input Details</title>
+    <link rel="stylesheet" href="Input_style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Galaxy Insurance Co.</h1>
+    </header>
+
+    <main>
+        <section id="health-tracker" class="tracker">
+            <h2>Enter Your Details</h2>
+            <form id="health-form">
+                <label for="heart-rate">Heart Rate (BPM)</label>
+                <input type="number" id="heart-rate" name="Heart_Rate_BPM" placeholder="Enter your heart rate" required>
+
+                <label for="sleep-duration">Sleep Duration (Hours)</label>
+                <input type="number" id="sleep-duration" name="Sleep_Duration_Hours" placeholder="Enter hours of sleep" required>
+
+                <label for="physical-activity">Physical Activity (Steps)</label>
+                <input type="number" id="physical-activity" name="Physical_Activity_Steps" placeholder="Enter steps walked" required>
+
+                <label for="mood-rating">Mood Rating (1-10)</label>
+                <input type="number" id="mood-rating" name="Mood_Rating" min="1" max="10" placeholder="Rate your mood" required>
+
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Galaxy Insurance Co. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('health-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const heartRate = document.getElementById('heart-rate').value;
+            const sleepDuration = document.getElementById('sleep-duration').value;
+            const physicalActivity = document.getElementById('physical-activity').value;
+            const moodRating = document.getElementById('mood-rating').value;
+
+            const requestData = {
+                Heart_Rate_BPM: parseInt(heartRate),
+                Sleep_Duration_Hours: parseFloat(sleepDuration),
+                Physical_Activity_Steps: parseInt(physicalActivity),
+                Mood_Rating: parseInt(moodRating)
+            };
+
+            // Navigate to loading and results page
+            localStorage.setItem('requestData', JSON.stringify(requestData));
+            window.location.href = "result.html";
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
