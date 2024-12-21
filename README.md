@@ -4,7 +4,7 @@
 
 **Overview**
 
-    This project provides an end-to-end system for recommending and displaying insurance plans based on user-provided health data. The system includes a backend API powered by Flask and a frontend interface for user interaction.
+    This project is an end-to-end system that recommends and displays insurance plans based on user-provided health data. It integrates a backend API powered by Flask with a frontend interface for user interaction. Key features include dynamic data submission, plan recommendation using machine learning, and detailed plan retrieval from a database.
 
 **Features**
 
@@ -28,13 +28,10 @@
 
 ***Backend***
 
-    Python
-
-    Flask
-
-    pyodbc (Database interaction)
-
-    pandas, scikit-learn (Data processing and ML model)
+    Backend: Python, Flask, pyodbc, pandas, scikit-learn
+    Frontend: HTML, CSS, JavaScript
+    Database: Microsoft Azure SQL Database
+    Scheduler: APScheduler for automated model updates
 
 ***Frontend***
 
@@ -58,10 +55,10 @@
     │   ├── model.py                    # Machine learning model handling (training and predictions)
     │   ├── scheduler.py                # Scheduler logic for periodic model updates
     ├── frontend/                       # Frontend files
-    │   ├── index.html                  # Data submission form
-    │   ├── input_style.css             # Data submission style
+    │   ├── Index.html                  # Main submission page
+    │   ├── Input_style.css             # Submission form styling
     │   ├── result.html                 # Insurance plan details page
-    │   ├── style.css                   # Insurance display style
+    │   ├── style.css                   # Shared style across pages
     │   ├── app.js                      # Frontend logic for API calls
     ├── models/                         # Saved ML models
     │   └── trained_model.pkl           # Pickled trained ML model
@@ -71,7 +68,6 @@
     │   ├── test_database.py            # Tests for database functions
     │   ├── test_logic.py               # Tests for backend logic
     │   ├── test_scheduler.py           # Tests for scheduler logic
-
 
 **Endpoints**
 
